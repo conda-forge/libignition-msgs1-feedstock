@@ -1,4 +1,4 @@
-About libignition-msgs1
+About libignition-msgs5
 =======================
 
 Home: https://bitbucket.org/ignitionrobotics/ign-msgs
@@ -68,27 +68,27 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-libignition--msgs1-green.svg)](https://anaconda.org/conda-forge/libignition-msgs1) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libignition-msgs1.svg)](https://anaconda.org/conda-forge/libignition-msgs1) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libignition-msgs1.svg)](https://anaconda.org/conda-forge/libignition-msgs1) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libignition-msgs1.svg)](https://anaconda.org/conda-forge/libignition-msgs1) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libignition--msgs5-green.svg)](https://anaconda.org/conda-forge/libignition-msgs5) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libignition-msgs5.svg)](https://anaconda.org/conda-forge/libignition-msgs5) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libignition-msgs5.svg)](https://anaconda.org/conda-forge/libignition-msgs5) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libignition-msgs5.svg)](https://anaconda.org/conda-forge/libignition-msgs5) |
 
-Installing libignition-msgs1
+Installing libignition-msgs5
 ============================
 
-Installing `libignition-msgs1` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `libignition-msgs5` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `libignition-msgs1` can be installed with:
+Once the `conda-forge` channel has been enabled, `libignition-msgs5` can be installed with:
 
 ```
-conda install libignition-msgs1
+conda install libignition-msgs5
 ```
 
-It is possible to list all of the versions of `libignition-msgs1` available on your platform with:
+It is possible to list all of the versions of `libignition-msgs5` available on your platform with:
 
 ```
-conda search libignition-msgs1 --channel conda-forge
+conda search libignition-msgs5 --channel conda-forge
 ```
 
 
@@ -106,7 +106,7 @@ A feedstock is made up of a conda recipe (the instructions on what and how to bu
 the package) and the necessary configurations for automatic building using freely
 available continuous integration services. Thanks to the awesome service provided by
 [CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/)
-and [TravisCI](https://travis-ci.org/) it is possible to build and upload installable
+and [TravisCI](https://travis-ci.com/) it is possible to build and upload installable
 packages to the [conda-forge](https://anaconda.org/conda-forge)
 [Anaconda-Cloud](https://anaconda.org/) channel for Linux, Windows and OSX respectively.
 
@@ -130,17 +130,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating libignition-msgs1-feedstock
+Updating libignition-msgs5-feedstock
 ====================================
 
-If you would like to improve the libignition-msgs1 recipe or build a new
+If you would like to improve the libignition-msgs5 recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/libignition-msgs1-feedstock are
+Note that all branches in the conda-forge/libignition-msgs5-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
