@@ -1,5 +1,5 @@
 {% set base_name = "libignition-msgs" %}
-{% set version = "1.0.0" %}
+{% set version = "5.1.0" %}
 {% set name = base_name + version.split('.')[0] %}
 
 package:
@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  - url: https://bitbucket.org/ignitionrobotics/ign-msgs/get/ignition-msgs_{{ version }}.tar.gz
-    sha256: c37e4f6d407ef6d76158a27224705b9c6c12492b8f8c3bf2ece8d0a3431069ca
+  - url: https://bitbucket.org/ignitionrobotics/ign-msgs/get/ignition-msgs{{ version.split('.')[0] }}_{{ version }}.tar.gz
+    sha256: 85319cf801690f87059188d3185fce3713608e338e3595f0be6b74a25713c8ed
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
@@ -26,13 +26,13 @@ requirements:
     - cmake
     - pkg-config
   host:
-    - libignition-tools
-    - libignition-math4
+    - libignition-math6
+    - tinyxml2
     - protobuf
     - libprotobuf                        # [not win]
   run:
-    - libignition-tools
-    - libignition-math4
+    - libignition-math6
+    - tinyxml2
     - protobuf
     - libprotobuf                        # [not win]
 
