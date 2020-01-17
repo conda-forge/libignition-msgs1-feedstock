@@ -1,5 +1,5 @@
 {% set base_name = "libignition-msgs" %}
-{% set version = "1.0.0" %}
+{% set version = "5.1.0" %}
 {% set name = base_name + version.split('.')[0] %}
 
 package:
@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  - url: https://bitbucket.org/ignitionrobotics/ign-msgs/get/ignition-msgs_{{ version }}.tar.gz
-    sha256: c37e4f6d407ef6d76158a27224705b9c6c12492b8f8c3bf2ece8d0a3431069ca
+  - url: https://bitbucket.org/ignitionrobotics/ign-msgs/get/ignition-msgs{{ version.split('.')[0] }}_{{ version }}.tar.gz
+    sha256: 85319cf801690f87059188d3185fce3713608e338e3595f0be6b74a25713c8ed
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
@@ -26,26 +26,26 @@ requirements:
     - cmake
     - pkg-config
   host:
-    - libignition-tools
-    - libignition-math4
+    - libignition-math6 >=6.4
+    - tinyxml2
     - protobuf
     - libprotobuf                        # [not win]
   run:
-    - libignition-tools
-    - libignition-math4
+    - libignition-math6 >=6.4
+    - tinyxml2
     - protobuf
     - libprotobuf                        # [not win]
 
 test:
   commands:
-    - test -f ${PREFIX}/include/ignition/msgs1/ignition/msgs.hh  # [not win]
-    - test -f ${PREFIX}/lib/libignition-msgs1.so  # [linux]
-    - test -f ${PREFIX}/lib/libignition-msgs1.dylib  # [osx]
-    - test -f ${PREFIX}/lib/cmake/ignition-msgs1/ignition-msgs1-config.cmake  # [not win]
-    - if exist %PREFIX%\\Library\\include\\ignition\\msgs1\\ignition\\msgs.hh (exit 0) else (exit 1)  # [win]
-    - if exist $PREFIX$\\Library\\lib\\ignition-msgs1.lib (exit 0) else (exit 1)  # [win]
-    - if exist $PREFIX$\\Library\\bin\\ignition-msgs1.dll (exit 0) else (exit 1)  # [win]
-    - if exist %PREFIX%\\Library\\lib\\cmake\\ignition-msgs1\\ignition-msgs1-config.cmake (exit 0) else (exit 1)  # [win]
+    - test -f ${PREFIX}/include/ignition/msgs{{ version.split('.')[0] }}/ignition/msgs.hh  # [not win]
+    - test -f ${PREFIX}/lib/libignition-msgs{{ version.split('.')[0] }}.so  # [linux]
+    - test -f ${PREFIX}/lib/libignition-msgs{{ version.split('.')[0] }}.dylib  # [osx]
+    - test -f ${PREFIX}/lib/cmake/ignition-msgs{{ version.split('.')[0] }}/ignition-msgs{{ version.split('.')[0] }}-config.cmake  # [not win]
+    - if exist %PREFIX%\\Library\\include\\ignition\\msgs{{ version.split('.')[0] }}\\ignition\\msgs.hh (exit 0) else (exit 1)  # [win]
+    - if exist $PREFIX$\\Library\\lib\\ignition-msgs{{ version.split('.')[0] }}.lib (exit 0) else (exit 1)  # [win]
+    - if exist $PREFIX$\\Library\\bin\\ignition-msgs{{ version.split('.')[0] }}.dll (exit 0) else (exit 1)  # [win]
+    - if exist %PREFIX%\\Library\\lib\\cmake\\ignition-msgs{{ version.split('.')[0] }}\\ignition-msgs{{ version.split('.')[0] }}-config.cmake (exit 0) else (exit 1)  # [win]
 
 about:
   home: https://bitbucket.org/ignitionrobotics/ign-msgs
