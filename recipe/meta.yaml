@@ -24,7 +24,7 @@ requirements:
     - vs2017_win-32                      # [win32]
     - make                               # [not win]
     - cmake
-    - pkg-config
+    - pkg-config                         # [not win]
   host:
     - libignition-math6 >=6.4
     - tinyxml2
