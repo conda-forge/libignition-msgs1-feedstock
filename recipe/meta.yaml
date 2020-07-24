@@ -11,7 +11,7 @@ source:
     sha256: 85319cf801690f87059188d3185fce3713608e338e3595f0be6b74a25713c8ed
 
 build:
-  number: 3
+  number: 4
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
@@ -59,3 +59,4 @@ extra:
     - wolfv
     - traversaro
     - j-rivero
+    - Tobias-Fischer
