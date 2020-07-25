@@ -5,7 +5,7 @@ Home: https://bitbucket.org/ignitionrobotics/ign-msgs
 
 Package license: Apache-2.0
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Ignition Messages
 
@@ -155,6 +155,7 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@Tobias-Fischer](https://github.com/Tobias-Fischer/)
 * [@j-rivero](https://github.com/j-rivero/)
 * [@seanyen](https://github.com/seanyen/)
 * [@traversaro](https://github.com/traversaro/)
