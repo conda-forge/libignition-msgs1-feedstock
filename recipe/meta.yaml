@@ -1,5 +1,5 @@
 {% set base_name = "libignition-msgs" %}
-{% set version = "5.1.0" %}
+{% set version = "5.3.0" %}
 {% set name = base_name + version.split('.')[0] %}
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   - url: https://github.com/ignitionrobotics/ign-msgs/archive/ignition-msgs{{ version.split('.')[0] }}_{{ version }}.tar.gz
-    sha256: 530e09a548bb1acf6b2571877992823cb2c50d0c0ea0abda7fa4ad7efdb1b82d
+    sha256: 1e11986cdf9549f1b4e2a6da1b978525ff2f60539a451b24db5b81ca2c0893df
 
 build:
-  number: 4
+  number: 0
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
@@ -51,7 +51,7 @@ about:
   home: https://bitbucket.org/ignitionrobotics/ign-msgs
   license: Apache-2.0
   license_file: LICENSE
-  summary: 'Ignition Messages'
+  summary: Ignition Messages
 
 extra:
   recipe-maintainers:
