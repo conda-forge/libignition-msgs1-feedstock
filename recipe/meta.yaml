@@ -7,8 +7,8 @@ package:
   version: {{ version }}
 
 source:
-  - url: https://bitbucket.org/ignitionrobotics/ign-msgs/get/ignition-msgs_{{ version }}.tar.gz
-    sha256: c37e4f6d407ef6d76158a27224705b9c6c12492b8f8c3bf2ece8d0a3431069ca
+  - url: https://github.com/ignitionrobotics/ign-msgs/archive/ignition-msgs{{ version.split('.')[0] }}_{{ version }}.tar.gz
+    sha256: aaf7b13e93d08b36c753d537ebc5ac80638ce4e934e0a1589196a7073bb1d420
 
 build:
   number: 3
