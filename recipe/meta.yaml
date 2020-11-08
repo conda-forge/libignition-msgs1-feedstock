@@ -11,7 +11,7 @@ source:
     sha256: 6a0d740a08c781f9f6e2bb168cc0c1072a3f9f47f536e67b61174e966e6fe420
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x') }}
@@ -27,11 +27,13 @@ requirements:
     - pkg-config                         # [not win]
   host:
     - libignition-math6 >=6.4
+    - libignition-tools1
     - tinyxml2
     - protobuf
     - libprotobuf                        # [not win]
   run:
     - libignition-math6 >=6.4
+    - libignition-tools1
     - tinyxml2
     - protobuf
     - libprotobuf                        # [not win]
