@@ -31,14 +31,12 @@ requirements:
     - tinyxml2
     - protobuf
     - libprotobuf                        # [not win]
-    - ruby
   run:
     - libignition-math6 >=6.4
     - libignition-tools1
     - tinyxml2
     - protobuf
     - libprotobuf                        # [not win]
-    - ruby
 
 test:
   commands:
