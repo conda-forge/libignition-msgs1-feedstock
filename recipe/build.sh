@@ -11,4 +11,5 @@ cmake .. \
 
 cmake --build . --config Release
 cmake --build . --config Release --target install
+export CTEST_OUTPUT_ON_FAILURE=1
 ctest -C Release -E "INTEGRATION|PERFORMANCE|REGRESSION"
