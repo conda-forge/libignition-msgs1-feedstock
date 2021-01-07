@@ -1,5 +1,5 @@
 {% set base_name = "libignition-msgs" %}
-{% set version = "6.1.0" %}
+{% set version = "6.2.0" %}
 {% set name = base_name + version.split('.')[0] %}
 
 package:
@@ -11,17 +11,14 @@ source:
     sha256: 231b0b302a854fb0f838174ea2b86cac96ed137d2d6d51174ba024f6b30b9baf
 
 build:
-  number: 1
-  skip: true  # [win and vc<14]
+  number: 0
   run_exports:
     - {{ pin_subpackage(name, max_pin='x') }}
 
 requirements:
   build:
-    - {{ compiler('cxx') }}              # [not win]
-    - {{ compiler('c') }}                # [not win]
-    - vs2017_win-64                      # [win64]
-    - vs2017_win-32                      # [win32]
+    - {{ compiler('cxx') }}
+    - {{ compiler('c') }}
     - make                               # [not win]
     - cmake
     - pkg-config                         # [not win]
@@ -50,7 +47,7 @@ test:
     - if exist %PREFIX%\\Library\\lib\\cmake\\ignition-msgs{{ version.split('.')[0] }}\\ignition-msgs{{ version.split('.')[0] }}-config.cmake (exit 0) else (exit 1)  # [win]
 
 about:
-  home: https://bitbucket.org/ignitionrobotics/ign-msgs
+  home: https://github.com/ignitionrobotics/ign-msgs
   license: Apache-2.0
   license_file: LICENSE
   summary: Ignition Messages
