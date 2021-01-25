@@ -11,20 +11,17 @@ source:
     sha256: 1e11986cdf9549f1b4e2a6da1b978525ff2f60539a451b24db5b81ca2c0893df
 
 build:
-  number: 3
-  skip: true  # [win and vc<14]
+  number: 4
   run_exports:
     - {{ pin_subpackage(name, max_pin='x') }}
 
 requirements:
   build:
-    - {{ compiler('cxx') }}              # [not win]
-    - {{ compiler('c') }}                # [not win]
-    - vs2017_win-64                      # [win64]
-    - vs2017_win-32                      # [win32]
+    - {{ compiler('cxx') }}
+    - {{ compiler('c') }}
     - make                               # [not win]
     - cmake
-    - pkg-config                         # [not win]
+    - pkg-config
   host:
     - libignition-math6 >=6.6
     - tinyxml2
@@ -48,7 +45,7 @@ test:
     - if exist %PREFIX%\\Library\\lib\\cmake\\ignition-msgs{{ version.split('.')[0] }}\\ignition-msgs{{ version.split('.')[0] }}-config.cmake (exit 0) else (exit 1)  # [win]
 
 about:
-  home: https://bitbucket.org/ignitionrobotics/ign-msgs
+  home: https://github.com/ignitionrobotics/ign-msgs
   license: Apache-2.0
   license_file: LICENSE
   summary: Ignition Messages
