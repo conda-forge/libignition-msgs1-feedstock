@@ -1,7 +1,7 @@
 About libignition-msgs5
 =======================
 
-Home: https://bitbucket.org/ignitionrobotics/ign-msgs
+Home: https://github.com/ignitionrobotics/ign-msgs
 
 Package license: Apache-2.0
 
