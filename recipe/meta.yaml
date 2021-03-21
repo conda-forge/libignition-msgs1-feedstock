@@ -1,5 +1,5 @@
 {% set base_name = "libignition-msgs" %}
-{% set version = "6.2.0" %}
+{% set version = "6.4.0" %}
 {% set name = base_name + version.split('.')[0] %}
 
 package:
