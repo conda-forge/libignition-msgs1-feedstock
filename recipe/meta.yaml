@@ -25,12 +25,7 @@ requirements:
   host:
     - libignition-math6 >=6.6
     - tinyxml2
-    - protobuf
     - libprotobuf
-  run:
-    - libignition-math6 >=6.6
-    - tinyxml2
-    - protobuf
 
 test:
   commands:
