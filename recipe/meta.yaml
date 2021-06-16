@@ -27,10 +27,6 @@ requirements:
     - libignition-tools1
     - tinyxml2
     - libprotobuf
-  run:
-    - libignition-math6 >=6.4
-    - libignition-tools1
-    - tinyxml2
 
 
 test:
