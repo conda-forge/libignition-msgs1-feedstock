@@ -26,13 +26,11 @@ requirements:
     - libignition-math6 >=6.4
     - libignition-tools1
     - tinyxml2
-    - protobuf
     - libprotobuf
   run:
     - libignition-math6 >=6.4
     - libignition-tools1
     - tinyxml2
-    - protobuf
 
 
 test:
