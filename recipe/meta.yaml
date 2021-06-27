@@ -1,5 +1,5 @@
 {% set base_name = "libignition-msgs" %}
-{% set version = "6.4.0" %}
+{% set version = "6.5.0" %}
 {% set name = base_name + version.split('.')[0] %}
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   - url: https://github.com/ignitionrobotics/ign-msgs/archive/ignition-msgs{{ version.split('.')[0] }}_{{ version }}.tar.gz
-    sha256: cbdebccb3a1707ce30f35c7e05e2f7e14000644b38e350e727b4be0e7193e256
+    sha256: 7ed0d6b76522633974a90e7638c47c349d6c0592e85b9b6dc3c3214bb4345bd7
 
 build:
-  number: 1
+  number: 0
   run_exports:
     - {{ pin_subpackage(name, max_pin='x') }}
 
@@ -27,7 +27,6 @@ requirements:
     - libignition-tools1
     - tinyxml2
     - libprotobuf
-
 
 test:
   commands:
