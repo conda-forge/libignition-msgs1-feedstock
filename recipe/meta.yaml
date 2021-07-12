@@ -22,6 +22,10 @@ requirements:
     - make                               # [not win]
     - cmake
     - pkg-config
+    # We need all host deps also in build for cross-compiling
+    - libignition-math6  # [build_platform != target_platform]
+    - tinyxml2  # [build_platform != target_platform]
+    - libprotobuf  # [build_platform != target_platform]
   host:
     - libignition-math6 >=6.6
     - tinyxml2
