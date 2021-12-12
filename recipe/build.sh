@@ -1,7 +1,5 @@
 #!/bin/sh
 
-env
-
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 ]]; then
   (
     mkdir -p build-host
@@ -15,8 +13,6 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 ]]; then
     # Unset them as we're ok with builds that are either slow or non-portable
     unset CFLAGS
     unset CXXFLAGS
-    
-    env
 
     cmake .. \
       -DCMAKE_BUILD_TYPE=Release \
@@ -29,8 +25,6 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 ]]; then
     cmake --build . --parallel ${CPU_COUNT} --config Release --target install
   )
 fi
-
-env
 
 mkdir build
 cd build
@@ -49,5 +43,8 @@ cmake --build . --config Release
 cmake --build . --config Release --target install
 export CTEST_OUTPUT_ON_FAILURE=1
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
-  ctest -C Release -E "INTEGRATION|PERFORMANCE|REGRESSION"
+  if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "" ]]; then
+      export CTEST_DISABLED_TESTS = "UNIT_ign_TEST"
+  fi
+  ctest -C Release -E "${CTEST_DISABLED_TESTS}"
 fi
