@@ -44,7 +44,7 @@ cmake --build . --config Release --target install
 export CTEST_OUTPUT_ON_FAILURE=1
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
   if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "" ]]; then
-      export CTEST_DISABLED_TESTS = "UNIT_ign_TEST"
+      export CTEST_DISABLED_TESTS="UNIT_ign_TEST"
   fi
   ctest -C Release -E "${CTEST_DISABLED_TESTS}"
 fi
