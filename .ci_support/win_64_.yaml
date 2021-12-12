@@ -7,7 +7,7 @@ channel_targets:
 cxx_compiler:
 - vs2017
 libprotobuf:
-- '3.18'
+- '3.19'
 target_platform:
 - win-64
 tinyxml2:

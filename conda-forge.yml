@@ -4,6 +4,8 @@ bot:
   - v6.4.0
   automerge: true
 build_platform:
+  linux_aarch64: linux_64
+  linux_ppc64le: linux_64
   osx_arm64: osx_64
 conda_forge_output_validation: true
 provider:
