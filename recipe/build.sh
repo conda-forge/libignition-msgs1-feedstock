@@ -1,5 +1,7 @@
 #!/bin/sh
 
+env
+
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 ]]; then
   (
     mkdir -p build-host
@@ -8,10 +10,13 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 ]]; then
     export CC=$CC_FOR_BUILD
     export CXX=$CXX_FOR_BUILD
     export LDFLAGS=${LDFLAGS//$PREFIX/$BUILD_PREFIX}
+    export PKG_CONFIG_PATH=${PKG_CONFIG_PATH//$PREFIX/$BUILD_PREFIX}
 
     # Unset them as we're ok with builds that are either slow or non-portable
     unset CFLAGS
     unset CXXFLAGS
+    
+    env
 
     cmake .. \
       -DCMAKE_BUILD_TYPE=Release \
@@ -24,6 +29,8 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 ]]; then
     cmake --build . --parallel ${CPU_COUNT} --config Release --target install
   )
 fi
+
+env
 
 mkdir build
 cd build
