@@ -1,5 +1,5 @@
 {% set base_name = "libignition-msgs" %}
-{% set version = "8_8.2.0" %}
+{% set version = "8_8.4.0" %}
 {% set name = base_name + version.split('_')[0] %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://github.com/ignitionrobotics/ign-msgs/archive/ignition-msgs{{ version }}.tar.gz
-    sha256: 83671fac95273a3a4b2cc444cef88f00935fd55fb64085436d79d6e95221a9e7
+    sha256: 77512843c6fc822511cda1dc822540f46fabb3de5772edb14c63979882ff0f9b
 
 build:
   number: 0
