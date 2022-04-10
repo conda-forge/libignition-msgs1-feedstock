@@ -1,5 +1,5 @@
 {% set base_name = "libignition-msgs" %}
-{% set version = "5.7.0" %}
+{% set version = "5.9.0" %}
 {% set name = base_name + version.split('.')[0] %}
 
 package:
@@ -11,7 +11,7 @@ source:
     sha256: 1aafdf96e6eda9dd14ed302029aa1954f2e02356b00b0e9aef8831692ff62bef
 
 build:
-  number: 3
+  number: 0
   run_exports:
     - {{ pin_subpackage(name, max_pin='x') }}
 
@@ -24,10 +24,12 @@ requirements:
     - pkg-config
     # We need all host deps also in build for cross-compiling
     - libignition-math6  # [build_platform != target_platform]
+    - libignition-tools1  # [build_platform != target_platform]
     - tinyxml2  # [build_platform != target_platform]
     - libprotobuf  # [build_platform != target_platform]
   host:
     - libignition-math6 >=6.6
+    - libignition-tools1
     - tinyxml2
     - libprotobuf
 
