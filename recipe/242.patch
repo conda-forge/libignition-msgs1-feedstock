@@ -1,0 +1,48 @@
+From ecc2b5b77911681de5e445e49bf71ee421b799df Mon Sep 17 00:00:00 2001
+From: Silvio Traversaro <silvio.traversaro@iit.it>
+Date: Sun, 10 Apr 2022 22:49:29 +0200
+Subject: [PATCH 1/2] Generator: Add missing std namespace to string arguments
+
+---
+ src/Generator.hh | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/Generator.hh b/src/Generator.hh
+index c0f2336f..61322741 100644
+--- a/src/Generator.hh
++++ b/src/Generator.hh
+@@ -44,9 +44,9 @@ class Generator : public CodeGenerator
+   /// \param[in] _generatorContext Output directory.
+   /// \param[in] _error Unused string value
+   public: virtual bool Generate(const FileDescriptor *_file,
+-              const string &_parameter,
++              const std::string &_parameter,
+               OutputDirectory *_generatorContext,
+-              string *_error) const;
++              std::string *_error) const;
+ 
+   // private: GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(Generator);
+ };
+
+From 0ab1146876551b2df834ef13ae14a7fb7b51e2c8 Mon Sep 17 00:00:00 2001
+From: Silvio Traversaro <silvio.traversaro@iit.it>
+Date: Sun, 10 Apr 2022 23:00:30 +0200
+Subject: [PATCH 2/2] Update Generator.cc
+
+---
+ src/Generator.cc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/Generator.cc b/src/Generator.cc
+index 3729ad45..099a46b2 100644
+--- a/src/Generator.cc
++++ b/src/Generator.cc
+@@ -67,7 +67,7 @@ Generator::~Generator()
+ 
+ /////////////////////////////////////////////////
+ bool Generator::Generate(const FileDescriptor *_file,
+-                               const string &/*_parameter*/,
++                               const std::string &/*_parameter*/,
+                                OutputDirectory *_generatorContext,
+                                std::string * /*_error*/) const
+ {
