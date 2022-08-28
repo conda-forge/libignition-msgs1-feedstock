@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://github.com/ignitionrobotics/ign-msgs/archive/ignition-msgs{{ version }}.tar.gz
-    sha256: aa05006abd3ff323ee6fa858f29251167ed97c7b8a18839f1e8177d5a10a98b4
+    sha256: c0ac4d4a3fb3fa74091d546ce138f4300a23975611c3f278c2a05ab43ef83eeb
 
 build:
   number: 5
