@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://github.com/gazebosim/gz-msgs/archive/ignition-msgs{{ version }}.tar.gz
-    sha256: c850fc9d39bd3b60430fa8f8e6f933ffd191714136be3505a506b0bb297eebaa
+    sha256: a16528383745f827af7656ac799ab1f2272678b4584454d0c9e56e3bd22d9fcb
 
 build:
   number: 0
