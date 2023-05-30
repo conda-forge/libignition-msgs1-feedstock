@@ -1,0 +1,85 @@
+From 7ddc3ea00494dca89b884924e91b4705a2afb717 Mon Sep 17 00:00:00 2001
+From: Silvio Traversaro <silvio.traversaro@iit.it>
+Date: Fri, 26 May 2023 13:35:25 +0200
+Subject: [PATCH 1/2] GzProtobuf: Do not require version 3
+
+Signed-off-by: Silvio Traversaro <silvio.traversaro@iit.it>
+---
+ CMakeLists.txt | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d5164d92..ca7ecfeb 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -62,9 +62,7 @@ message(STATUS "\n\n-- ====== Finding Dependencies ======")
+ 
+ #--------------------------------------
+ # Find Protobuf
+-set(REQ_PROTOBUF_VER 3)
+ ign_find_package(IgnProtobuf
+-                 VERSION ${REQ_PROTOBUF_VER}
+                  REQUIRED
+                  COMPONENTS all
+                  PRETTY Protobuf)
+
+From 9e1ff6cbfec1e89bd783d0bc67ad3d24695a95e2 Mon Sep 17 00:00:00 2001
+From: Silvio Traversaro <silvio@traversaro.it>
+Date: Wed, 31 May 2023 01:06:43 +0200
+Subject: [PATCH 2/2] Fix support for cross-compilation with protobuf 23
+
+---
+ CMakeLists.txt     | 12 ++++++++++--
+ src/CMakeLists.txt |  2 +-
+ 2 files changed, 11 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ca7ecfeb..ae6e4b10 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -30,7 +30,7 @@ endif()
+ # In a cross-compilation scenario, it is possible that the ign_msgs_gen
+ # generator compiled for the target machine cannot be used to generate
+ # the C++ code corresponding to the .proto definition. For this scenario,
+-# the following two options can be used as follows.
++# the following options can be used as follows.
+ # First of all, ign-msgs is compiled targeting the host machine, and in the
+ # build targeting the host, the INSTALL_IGN_MSGS_GEN_EXECUTABLE option is
+ # enabled:
+@@ -40,7 +40,8 @@ endif()
+ # can be cross-compiled, and in the cross-compilation build the location of the
+ # host ign_msgs_gen is specified via the IGN_MSGS_GEN_EXECUTABLE
+ # CMake cache variable:
+-# > cmake -IGN_MSGS_GEN_EXECUTABLE=<host_install_prefix>/bin/ign_msgs_gen ..
++# > cmake -DIGN_MSGS_PROTOC_EXECUTABLE=<host_install_prefix>/bin/protoc
++#         -DIGN_MSGS_GEN_EXECUTABLE=<host_install_prefix>/bin/ign_msgs_gen ..
+ 
+ option(
+   INSTALL_IGN_MSGS_GEN_EXECUTABLE
+@@ -55,6 +56,13 @@ set(
+   "ign_msgs_gen executable used in the ign_msgs_protoc CMake function.")
+ mark_as_advanced(IGN_MSGS_GEN_EXECUTABLE)
+ 
++set(
++  IGN_MSGS_PROTOC_EXECUTABLE
++  "$<TARGET_FILE:protobuf::protoc>"
++  CACHE STRING
++  "protoc executable used in the ign_msgs_protoc CMake function.")
++mark_as_advanced(IGN_MSGS_PROTOC_EXECUTABLE)
++
+ #============================================================================
+ # Search for project-specific dependencies
+ #============================================================================
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 925552f1..1ca6218c 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -111,7 +111,7 @@ foreach(proto_file ${proto_files})
+     INPUT_PROTO
+       ${proto_file}
+     PROTOC_EXEC
+-      protobuf::protoc
++      ${IGN_MSGS_PROTOC_EXECUTABLE}
+     OUTPUT_CPP_DIR
+       "${PROJECT_BINARY_DIR}/include"
+     OUTPUT_RUBY_DIR
