@@ -62,7 +62,7 @@ index ca7ecfeb..ae6e4b10 100644
  
 +set(
 +  IGN_MSGS_PROTOC_EXECUTABLE
-+  "$<TARGET_FILE:libprotobuf::protoc>"
++  "$<TARGET_FILE:protobuf::protoc>"
 +  CACHE STRING
 +  "protoc executable used in the ign_msgs_protoc CMake function.")
 +mark_as_advanced(IGN_MSGS_PROTOC_EXECUTABLE)
