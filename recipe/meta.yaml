@@ -11,6 +11,7 @@ source:
     sha256: b529a45a2a2a18a9278534dc1956c0b2a0a28b677a35ae3f26ee8a42991f9d61
     patches:
       - 242.patch
+      - 346.patch
 
 build:
   number: 2
@@ -28,11 +29,13 @@ requirements:
     - libignition-math6  # [build_platform != target_platform]
     - libignition-tools1  # [build_platform != target_platform]
     - tinyxml2  # [build_platform != target_platform]
+    - libabseil  # [build_platform != target_platform]
     - libprotobuf  # [build_platform != target_platform]
   host:
     - libignition-math6 >=6.6
     - libignition-tools1
     - tinyxml2
+    - libabseil
     - libprotobuf
 
 test:
