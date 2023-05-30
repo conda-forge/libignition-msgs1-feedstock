@@ -9,6 +9,8 @@ package:
 source:
   - url: https://github.com/ignitionrobotics/ign-msgs/archive/ignition-msgs{{ version }}.tar.gz
     sha256: c0ac4d4a3fb3fa74091d546ce138f4300a23975611c3f278c2a05ab43ef83eeb
+    patches:
+      - 346.patch
 
 build:
   number: 6
@@ -26,11 +28,13 @@ requirements:
     - libignition-math6  # [build_platform != target_platform]
     - libignition-tools1  # [build_platform != target_platform]
     - tinyxml2  # [build_platform != target_platform]
+    - libabseil  # [build_platform != target_platform]
     - libprotobuf  # [build_platform != target_platform]
   host:
     - libignition-math6 >=6.4
     - libignition-tools1
     - tinyxml2
+    - libabseil
     - libprotobuf
 
 
