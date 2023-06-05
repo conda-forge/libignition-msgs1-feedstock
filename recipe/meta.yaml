@@ -9,9 +9,11 @@ package:
 source:
   - url: https://github.com/gazebosim/gz-msgs/archive/ignition-msgs{{ version }}.tar.gz
     sha256: a16528383745f827af7656ac799ab1f2272678b4584454d0c9e56e3bd22d9fcb
+    patches:
+      - 346.patch
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage(name, max_pin='x') }}
 
@@ -26,11 +28,13 @@ requirements:
     - libignition-math6  # [build_platform != target_platform]
     - libignition-tools1  # [build_platform != target_platform]
     - tinyxml2  # [build_platform != target_platform]
+    - libabseil  # [build_platform != target_platform]
     - libprotobuf  # [build_platform != target_platform]
   host:
     - libignition-math6 >=6.4
     - libignition-tools1
     - tinyxml2
+    - libabseil
     - libprotobuf
   run:
     - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]

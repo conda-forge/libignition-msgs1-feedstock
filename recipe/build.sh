@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if [[ "${target_platform}" == osx-* ]]; then
+    # See https://conda-forge.org/docs/maintainer/knowledge_base.html#newer-c-features-with-old-sdk
+    CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
+fi
+
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 ]]; then
   (
     mkdir -p build-host
@@ -30,7 +35,7 @@ mkdir build
 cd build
 
 if [[ "${CONDA_BUILD_CROSS_COMPILATION}" == "1" ]]; then
-  export CMAKE_ARGS="${CMAKE_ARGS} -DProtobuf_PROTOC_EXECUTABLE=$BUILD_PREFIX/bin/protoc -DIGN_MSGS_GEN_EXECUTABLE:BOOL=$BUILD_PREFIX/bin/ign_msgs_gen"
+  export CMAKE_ARGS="${CMAKE_ARGS} -DIGN_MSGS_PROTOC_EXECUTABLE=$BUILD_PREFIX/bin/protoc -DIGN_MSGS_GEN_EXECUTABLE:BOOL=$BUILD_PREFIX/bin/ign_msgs_gen"
 fi
 
 cmake ${CMAKE_ARGS} .. \
