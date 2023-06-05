@@ -26,11 +26,13 @@ requirements:
     - libignition-math6  # [build_platform != target_platform]
     - libignition-tools1  # [build_platform != target_platform]
     - tinyxml2  # [build_platform != target_platform]
+    - libabseil  # [build_platform != target_platform]
     - libprotobuf  # [build_platform != target_platform]
   host:
     - libignition-math6 >=6.4
     - libignition-tools1
     - tinyxml2
+    - libabseil
     - libprotobuf
   run:
     - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
