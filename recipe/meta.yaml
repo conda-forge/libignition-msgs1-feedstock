@@ -13,7 +13,7 @@ source:
       - 346.patch
 
 build:
-  number: 9
+  number: 10
   run_exports:
     - {{ pin_subpackage(name, max_pin='x') }}
 
@@ -21,6 +21,7 @@ requirements:
   build:
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - make                               # [not win]
     - cmake
     - pkg-config
@@ -37,7 +38,6 @@ requirements:
     - libabseil
     - libprotobuf
   run:
-    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
 
 test:
   commands:
