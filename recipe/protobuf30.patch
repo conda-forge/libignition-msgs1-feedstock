@@ -94,7 +94,7 @@ index 099a46b2..ed050033 100644
 -  }
 +    std::string ptrTypesStr = ptrTypes.str();
 +    printer.Print(ptrTypesStr.c_str(), "name", "namespace_scope");
-+    
++  }  
  
    // Pop the warning suppression stack for MSVC
    {
