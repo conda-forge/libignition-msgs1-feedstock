@@ -11,9 +11,10 @@ source:
     sha256: 3cf31cabd0d21fc9cb111aafedd65c13d5523a7585572e85657681baf1878da7
     patches:
       - 346.patch
+      - protobuf30.patch
 
 build:
-  number: 14
+  number: 15
   run_exports:
     - {{ pin_subpackage(name, max_pin='x') }}
 
