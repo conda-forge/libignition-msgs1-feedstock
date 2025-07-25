@@ -45,9 +45,9 @@ index 099a46b2..ed050033 100644
 -      _file->message_type(0)->name() +")";
 -    printer.Print(factory.c_str(), "name", "includes");
 +    std::stringstream factory;
-+    factor << "IGN_REGISTER_STATIC_MSG(\"ign_msgs."
-+           << _file->message_type(0)->name() << "\", "
-+           << _file->message_type(0)->name() +")\n";
++    factory << "IGN_REGISTER_STATIC_MSG(\"ign_msgs."
++            << _file->message_type(0)->name() << "\", "
++            << _file->message_type(0)->name() << ")\n";
 +    std::string factoryStr = factory.str();
 +    printer.Print(factoryStr.c_str(), "name", "includes");
    }
